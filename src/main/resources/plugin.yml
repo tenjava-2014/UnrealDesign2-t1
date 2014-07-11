@@ -1,0 +1,3 @@
+name: UnrealDesign2-t1
+main: com.tenjava.entries.UnrealDesign2.t1.TenJava
+version: '${project.version}'
