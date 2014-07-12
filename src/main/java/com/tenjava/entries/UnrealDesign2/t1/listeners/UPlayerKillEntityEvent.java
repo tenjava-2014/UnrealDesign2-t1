@@ -62,13 +62,14 @@ public class UPlayerKillEntityEvent implements Listener
                 
                 double multiplier = config.getKillStreakMultiplier();
                 
-                money *= diedUP.getKillStreak()*config.getKillStreakMultiplier();
+                
                 
                 //Reset the players killstreak and send a message if the player
                 //that died had one.
                 int streak = diedUP.getKillStreak();
                 if(streak > 0)
                 {
+                    money *= diedUP.getKillStreak()*config.getKillStreakMultiplier();
                     p.sendMessage(ChatColor.GOLD+"You have ended "+ChatColor.WHITE+diedP.getDisplayName()+ChatColor.GOLD+"'s "+ChatColor.WHITE+streak+ChatColor.GOLD+" kill streak.");
                     diedP.sendMessage(ChatColor.GOLD+"You kill streak of "+ChatColor.WHITE+streak+ChatColor.GOLD+" has ended!");
                     diedUP.resetKillStreak();
