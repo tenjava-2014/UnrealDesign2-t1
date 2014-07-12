@@ -1,1 +1,9 @@
-# Default Settings.yml config
+# settings.yml config
+
+# Database connection information
+database:
+    host: "fragzone.org"
+    database: "zadmin_tenjava"
+    port: "3306"
+    username: "zadmin_tenjava"
+    password: "69696969Password"

@@ -29,6 +29,16 @@ public class SettingsConfig
     private File file;
     private FileConfiguration config;
     
+    
+    /*
+    MySQL settings from config file
+    */
+    private String user = "";
+    private String database = "";
+    private String password = "";
+    private String port = "";
+    private String hostname = "";
+    
     /**
      * Baisc and only constructor for this plugin
      * 
@@ -63,7 +73,13 @@ public class SettingsConfig
      */
     private void initialize()
     {
+        if(!config.contains("database")) config.createSection("database");
         
+        this.user = config.getString("database.username");
+        this.database = config.getString("database.database");
+        this.password = config.getString("database.password");
+        this.port = config.getString("database.port");
+        this.hostname = config.getString("database.host");
     }
     
     /**
@@ -139,5 +155,45 @@ public class SettingsConfig
         {
             Logger.getLogger(SettingsConfig.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**
+     * @return user for the MySQL database
+     */
+    public String getUser()
+    {
+        return user;
+    }
+    
+    /**
+     * @return database for the MySQL database
+     */
+    public String getDatabase()
+    {
+        return database;
+    }
+        
+    /**
+     * @return password for the MySQL database
+     */
+    public String getPassword()
+    {
+        return password;
+    }
+        
+    /**
+     * @return port for the MySQL database
+     */
+    public String getPort()
+    {
+        return port;
+    }
+        
+    /**
+     * @return hostname for the MySQL database
+     */
+    public String getHostName()
+    {
+        return hostname;
     }
 }
