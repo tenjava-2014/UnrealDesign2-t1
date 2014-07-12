@@ -75,13 +75,15 @@ public class UPlayerManager
     }
     
     /**
-     * Remove the UPlayer instance given from the Set<UPlayer>
+     * Remove the UPlayer instance given from the Set<UPlayer> and save all of
+     * his information to the database
      * 
      * @param up UPlayer instance to remove
      * @return true if the Set<> contained it
      */
     public boolean logout(UPlayer up)
     {
+        up.saveEverything();
         return players.remove(up);
     }
     

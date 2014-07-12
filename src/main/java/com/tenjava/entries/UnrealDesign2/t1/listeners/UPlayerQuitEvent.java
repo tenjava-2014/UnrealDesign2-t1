@@ -30,8 +30,6 @@ public class UPlayerQuitEvent implements Listener
         UPlayerManager manager = UPlayerManager.getInstance();
         UPlayer up = manager.getUPlayer(e.getPlayer());
         
-        up.saveEverything();
-        
         manager.logout(up);
     }
 }
