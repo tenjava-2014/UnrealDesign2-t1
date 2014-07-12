@@ -202,4 +202,9 @@ public class SettingsConfig extends Config
         
         return config.getInt("mob.default.money");
     }
+    
+    public double getKillStreakMultiplier()
+    {
+        return config.getDouble("killStreakMultiplier");
+    }
 }

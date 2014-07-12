@@ -132,7 +132,7 @@ public class UOfflinePlayer
             stmt.executeUpdate("UPDATE "+DBTable.players+" "
                     + "SET level='"+level+"', "
                     + "SET bal='"+bal+"', "
-                    + "SET kill_streak='"+killstreak+"',"
+                    + "SET kill_streak='"+killstreak+"', "
                     + "SET xp='"+xp+"' "
                     + "WHERE uuid='"+uuid+"';");
         }
