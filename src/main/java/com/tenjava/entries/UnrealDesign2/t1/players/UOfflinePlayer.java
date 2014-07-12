@@ -31,7 +31,7 @@ public class UOfflinePlayer
     
     /**
      * Create a UOfflinePlayer instance for a player with the given name
-     * @param name name of the player
+     * @param uuid uuid of the player
      */
     public UOfflinePlayer(UUID uuid)
     {
@@ -71,11 +71,11 @@ public class UOfflinePlayer
      */
     public final boolean createPlayer()
     {
-        if(playerExists())
+        if(!playerExists())
         {
             try
             {
-                stmt.executeUpdate("INSERT INTO "+DBTable.players+"() "
+                int i = stmt.executeUpdate("INSERT INTO "+DBTable.players+"(id,uuid,level) "
                         + "VALUES(null, '"+uuid+"', '"+level+"');");
             }
             catch(SQLException e)
@@ -114,5 +114,13 @@ public class UOfflinePlayer
     public UUID getUUID()
     {
         return uuid;
+    }
+    
+    /**
+     * @return level of the player
+     */
+    public int getLevel()
+    {
+        return level;
     }
 }
