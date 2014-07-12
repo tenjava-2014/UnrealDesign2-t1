@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -20,13 +19,13 @@ import org.bukkit.plugin.Plugin;
  *
  * @author Wil
  */
-public class DatabaseManager
+public class DBManager
 {
-    private DatabaseManager() { }
+    private DBManager() { }
 
-    private static DatabaseManager instance = new DatabaseManager();
+    private static DBManager instance = new DBManager();
 
-    public static DatabaseManager getInstance()
+    public static DBManager getInstance()
     {
         return instance;
     }
@@ -55,6 +54,15 @@ public class DatabaseManager
         catch (SQLException ex)
         {
             Bukkit.getLogger().log(Level.SEVERE, "Incorrect database information in settings.yml", ex);
+        }
+        
+        try
+        {
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ");
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
         }
     }
     
