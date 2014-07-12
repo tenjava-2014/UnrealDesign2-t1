@@ -17,24 +17,29 @@ public class TenJava extends JavaPlugin
     @Override
     public void onEnable()
     {
-        UPlayerManager.getInstance().setup();
         ConfigManager.getInstance().setup(this);
         DBManager.getInstance().setup(this);
+        UPlayerManager.getInstance().setup();
+        
+        for(Player p : getServer().getOnlinePlayers())
+        {
+            UPlayerManager.getInstance().login(p);
+        }
         
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new UPlayerJoinEvent(), this);
         pm.registerEvents(new UPlayerQuitEvent(), this);
         pm.registerEvents(new UPlayerKillEntityEvent(), this);
         
-        for(Player p : getServer().getOnlinePlayers())
-        {
-            UPlayerManager.getInstance().login(p);
-        }
+        
     }
     
     @Override
     public void onDisable()
     {
-        
+        for(Player p : getServer().getOnlinePlayers())
+        {
+            UPlayerManager.getInstance().logout(p);
+        }
     }
 }
