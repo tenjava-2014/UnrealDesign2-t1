@@ -49,7 +49,7 @@ public class DBManager
         this.c = mysql.openConnection();
         try
         {
-            this.stmt = mysql.openConnection().createStatement();
+            this.stmt = c.createStatement();
         }
         catch (SQLException ex)
         {
