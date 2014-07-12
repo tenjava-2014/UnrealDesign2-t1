@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -159,5 +160,46 @@ public class SettingsConfig extends Config
     public String getHostName()
     {
         return hostname;
+    }
+    
+    /**
+     * Get the XP for killing a certain type of mob
+     * 
+     * @param type EntityType of the mob
+     * @return XP given
+     */
+    public int getXP(EntityType type)
+    {
+        String name = type.name().toLowerCase();
+        if(config.contains("mob."+name+".xp"))
+        {
+            return config.getInt("mob."+name+".xp");
+        }
+        else
+        {
+            return config.getInt("mob.default.xp");
+        }
+    }
+    
+    /**
+     * Get the XP for killing a certain type of mob
+     * 
+     * @param type EntityType of the mob
+     * @return XP given
+     */
+    public int getMoney(EntityType type)
+    {
+        String name = type.name().toLowerCase();
+        if(config.contains("mob."+name+".money"))
+        {
+            if(name.equals("player"))
+            {
+                
+            }
+            
+            return config.getInt("mob."+name+".money");
+        }
+        
+        return config.getInt("mob.default.money");
     }
 }

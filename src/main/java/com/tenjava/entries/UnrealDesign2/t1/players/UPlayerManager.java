@@ -154,6 +154,4 @@ public class UPlayerManager
     {
         return getUPlayer(Bukkit.getPlayer(name));
     }
-    
-    
 }

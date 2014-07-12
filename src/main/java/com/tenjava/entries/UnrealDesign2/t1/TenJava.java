@@ -21,6 +21,7 @@ public class TenJava extends JavaPlugin
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new UPlayerJoinEvent(), this);
         pm.registerEvents(new UPlayerQuitEvent(), this);
+        pm.registerEvents(new UPlayerKillEntityEvent(), this);
     }
     
     @Override

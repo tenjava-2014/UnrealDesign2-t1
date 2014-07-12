@@ -14,6 +14,9 @@ baseXP: 100
 # XP at level = (level * xpLevelMultiplier) * baseXP
 xpLevelMultiplier: 1.5
 
+# Kill streak reward = (killStreakMultiplier * kills) * normalReward
+killStreakMultiplier: 2
+
 # XP and money given per mob
 # Mob types can be found at 
 mob:

@@ -62,7 +62,8 @@ public class DBManager
                     + "id int(11) AUTO_INCREMENT PRIMARY KEY, "
                     + "uuid varchar(80), "
                     + "level int(11) NOT NULL DEFAULT 1, "
-                    + "bal int(11) NOT NULL DEFAULT 0,"
+                    + "xp int(11) NOT NULL DEFAULT 0, "
+                    + "bal int(11) NOT NULL DEFAULT 0, "
                     + "kill-streak int(11) NOT NULL DEFAULT 0);");
         }
         catch(SQLException e)
