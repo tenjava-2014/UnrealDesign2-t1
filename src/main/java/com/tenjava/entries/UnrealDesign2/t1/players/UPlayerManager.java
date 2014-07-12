@@ -74,6 +74,17 @@ public class UPlayerManager
         return login(Bukkit.getPlayer(name).getUniqueId());
     }
     
+    /**
+     * Remove the UPlayer instance given from the Set<UPlayer>
+     * 
+     * @param up UPlayer instance to remove
+     * @return true if the Set<> contained it
+     */
+    public boolean logout(UPlayer up)
+    {
+        return players.remove(up);
+    }
+    
    /**
      * Remove a UPlayer instance to the set once he logins
      * 
@@ -82,7 +93,7 @@ public class UPlayerManager
      */
     public boolean logout(UUID uuid)
     {
-        return players.remove(new UPlayer(uuid));
+        return logout(getUPlayer(uuid));
     }
     
     /**
@@ -106,7 +117,7 @@ public class UPlayerManager
     @Deprecated
     public boolean logout(String name)
     {
-        return logout(Bukkit.getPlayer(name).getUniqueId());
+        return logout(Bukkit.getPlayer(name));
     }
     
     /**

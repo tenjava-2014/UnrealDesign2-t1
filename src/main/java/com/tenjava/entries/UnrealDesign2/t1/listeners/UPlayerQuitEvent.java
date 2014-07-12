@@ -6,6 +6,7 @@
 
 package com.tenjava.entries.UnrealDesign2.t1.listeners;
 
+import com.tenjava.entries.UnrealDesign2.t1.players.UPlayer;
 import com.tenjava.entries.UnrealDesign2.t1.players.UPlayerManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,8 +28,10 @@ public class UPlayerQuitEvent implements Listener
     public void onPlayerQuit(PlayerQuitEvent e)
     {
         UPlayerManager manager = UPlayerManager.getInstance();
-        Player p = e.getPlayer();
+        UPlayer up = manager.getUPlayer(e.getPlayer());
         
-        manager.logout(p);
+        up.saveEverything();
+        
+        manager.logout(up);
     }
 }
