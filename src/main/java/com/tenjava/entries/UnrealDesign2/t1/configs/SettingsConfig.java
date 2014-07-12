@@ -23,7 +23,7 @@ public class SettingsConfig extends Config
 {
     private JavaPlugin plugin;
     
-    private final File file = new File(plugin.getDataFolder(), "settings.yml");
+    private File file;
     private FileConfiguration config;
     
     
@@ -44,6 +44,7 @@ public class SettingsConfig extends Config
     public SettingsConfig(JavaPlugin plugin)
     {        
         this.plugin = plugin;
+        this.file = new File(plugin.getDataFolder(), "settings.yml");
         
         if(!file.getParentFile().exists()) file.getParentFile().mkdirs();
         
@@ -82,7 +83,7 @@ public class SettingsConfig extends Config
         if(!file.exists())
         {
             file.getParentFile().mkdirs();
-            copy(plugin.getResource("Settings.yml"), file);
+            copy(plugin.getResource("settings.yml"), file);
         }
     }
     
