@@ -7,3 +7,100 @@ database:
     port: "3306"
     username: "zadmin_tenjava"
     password: "69696969Password"
+    
+# Base XP required to level up to level 2
+baseXP: 100
+
+# XP at level = (level * xpLevelMultiplier) * baseXP
+xpLevelMultiplier: 1.5
+
+# XP and money given per mob
+# Mob types can be found at 
+mob:
+    default:
+        money: 10
+        xp: 10
+    chicken:
+        money: 10
+        xp: 10
+    cow:
+        money: 10
+        xp: 10
+    horse:
+        money: 10
+        xp: 10
+    ocelot:
+        money: 10
+        xp: 10
+    pig:
+        money: 10
+        xp: 10
+    sheep:
+        money: 10
+        xp: 10
+    bat:
+        money: 10
+        xp: 10
+    mooshroom:
+        money: 10
+        xp: 10
+    squid:
+        money: 10
+        xp: 10
+    villager:
+        money: 10
+        xp: 10
+    cave_spider:
+        money: 10
+        xp: 10
+    chicken:
+        money: 10
+        xp: 10
+    enderman:
+        money: 10
+        xp: 10
+    spider:
+        money: 10
+        xp: 10
+    wolf:
+        money: 10
+        xp: 10
+    pig_zombie:
+        money: 10
+        xp: 10
+    blaze:
+        money: 10
+        xp: 10
+    creeper:
+        money: 10
+        xp: 10
+    ghast:
+        money: 10
+        xp: 10
+    magma_cube:
+        money: 10
+        xp: 10
+    silverfish:
+        money: 10
+        xp: 10
+    skeleton:
+        money: 10
+        xp: 10
+    slime:
+        money: 10
+        xp: 10
+    witch:
+        money: 10
+        xp: 10
+    wither:
+        money: 10
+        xp: 10
+    zombie:
+        money: 10
+        xp: 10
+    
+    
+    
+    
+    
+    
