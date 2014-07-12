@@ -132,9 +132,9 @@ public class UOfflinePlayer
         {
             stmt.executeUpdate("UPDATE "+DBTable.players+" "
                     + "SET level='"+level+"', "
-                    + "SET bal='"+bal+"', "
-                    + "SET kill_streak='"+killstreak+"', "
-                    + "SET xp='"+xp+"' "
+                    + "bal='"+bal+"', "
+                    + "kill_streak='"+killstreak+"', "
+                    + "xp='"+xp+"' "
                     + "WHERE uuid='"+uuid+"';");
         }
         catch(SQLException e)
