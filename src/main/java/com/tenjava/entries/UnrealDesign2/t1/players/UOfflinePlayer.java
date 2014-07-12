@@ -28,6 +28,12 @@ public class UOfflinePlayer
     //Level of the player
     private int level;
     
+    //Balance of the player
+    private int bal;
+    
+    //Kill streak for the player
+    private int killstreak;
+    
     /**
      * Create a UOfflinePlayer instance for a player with the given name
      * @param uuid uuid of the player
@@ -36,7 +42,6 @@ public class UOfflinePlayer
     {
         this.uuid = uuid;
         this.stmt = DBManager.getInstance().getStatement();
-        this.level = 1;
         
         createPlayer();
         
@@ -99,6 +104,8 @@ public class UOfflinePlayer
             while(rs.next())
             {
                 level = rs.getInt("level");
+                bal = rs.getInt("bal");
+                killstreak = rs.getInt("kill-streak");
             }
         }
         catch(SQLException e)
@@ -121,5 +128,21 @@ public class UOfflinePlayer
     public int getLevel()
     {
         return level;
+    }
+    
+    /**
+     * @return balance of the player
+     */
+    public int getBalance()
+    {
+        return bal;
+    }
+    
+    /**
+     * @return kill streak for the player
+     */
+    public int getKillStreak()
+    {
+        return killstreak;
     }
 }
