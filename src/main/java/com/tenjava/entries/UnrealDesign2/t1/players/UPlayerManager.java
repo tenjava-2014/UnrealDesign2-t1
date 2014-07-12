@@ -108,4 +108,52 @@ public class UPlayerManager
     {
         return logout(Bukkit.getPlayer(name).getUniqueId());
     }
+    
+    /**
+     * Get the UPlayer with the given UUID. Returns null if the uuid is not 
+     * online
+     * 
+     * @param uuid uuid to check for
+     * @return UPlayer instance for the given uuid
+     */
+    public UPlayer getUPlayer(UUID uuid)
+    {
+        for(UPlayer up : players)
+        {
+            if(up.getUUID().equals(uuid))
+            {
+                return up;
+            }
+        }
+        
+        return null;
+    }
+    
+    /**
+     * Get the UPlayer with the given player instance.
+     * 
+     * @param p Player instance to search for
+     * @return UPlayer with the given Player instance
+     */
+    public UPlayer getUPlayer(Player p)
+    {
+        return getUPlayer(p.getUniqueId());
+    }
+    
+    /**
+     * Get the UPlayer with the given String name. Returns null if there is no
+     * Player with the given name.
+     * 
+     * @param name name of the player to search for
+     * @return UPlayer instance with the given string name
+     * @deprecated Bukkit.getPlayer(String name) is also deprecated. This method
+     * uses this.
+     */
+    @Deprecated
+    public UPlayer getUPlayer(String name)
+    {
+        return getUPlayer(Bukkit.getPlayer(name));
+    }
+    
+    
 }
