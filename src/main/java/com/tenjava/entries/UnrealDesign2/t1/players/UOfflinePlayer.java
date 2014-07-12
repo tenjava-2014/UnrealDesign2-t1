@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.UUID;
-import org.bukkit.Bukkit;
 
 /**
  *
@@ -41,7 +40,7 @@ public class UOfflinePlayer
         
         createPlayer();
         
-        loadLevel();
+        loadInformation();
     }
     
     /**
@@ -75,8 +74,8 @@ public class UOfflinePlayer
         {
             try
             {
-                int i = stmt.executeUpdate("INSERT INTO "+DBTable.players+"(id,uuid,level) "
-                        + "VALUES(null, '"+uuid+"', '"+level+"');");
+                stmt.executeUpdate("INSERT INTO "+DBTable.players+"(uuid) "
+                        + "VALUES('"+uuid+"');");
             }
             catch(SQLException e)
             {
@@ -91,11 +90,11 @@ public class UOfflinePlayer
     /**
      * Load the level variable from the database
      */
-    public final void loadLevel()
+    public final void loadInformation()
     {
         try
         {
-            ResultSet rs = stmt.executeQuery("SELECT level FROM "+DBTable.players+" WHERE uuid='"+uuid+"';");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM "+DBTable.players+" WHERE uuid='"+uuid+"';");
             
             while(rs.next())
             {
