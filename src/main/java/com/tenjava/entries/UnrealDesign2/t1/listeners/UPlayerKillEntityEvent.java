@@ -45,7 +45,8 @@ public class UPlayerKillEntityEvent implements Listener
             int xp = config.getMoney(type);
             int money = config.getMoney(type);
             
-            
+            up.addBalance(money);
+            up.addXP(xp);
         }
     }
 }

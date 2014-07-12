@@ -123,6 +123,26 @@ public class UOfflinePlayer
     }
     
     /**
+     * Saves all of the players current information to the database
+     */
+    public void saveEverything()
+    {
+        try
+        {
+            stmt.executeUpdate("UPDATE "+DBTable.players+" "
+                    + "SET level='"+level+"', "
+                    + "SET bal='"+bal+"', "
+                    + "SET kill-streak='"+killstreak+"',"
+                    + "SET xp='"+xp+"' "
+                    + "WHERE uuid='"+uuid+"';");
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
      * @return uuid of the player
      */
     public UUID getUUID()
