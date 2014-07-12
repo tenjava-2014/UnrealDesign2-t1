@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
  *
  * @author Wil
  */
-public class UPlayer
+public class UPlayer extends UOfflinePlayer
 {
     private UUID uuid = null;
     
@@ -25,6 +25,7 @@ public class UPlayer
      */
     public UPlayer(UUID uuid)
     {
+        super(uuid);
         this.uuid = uuid;
     }
     

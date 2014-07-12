@@ -7,9 +7,12 @@
 package com.tenjava.entries.UnrealDesign2.t1.players;
 
 import com.tenjava.entries.UnrealDesign2.t1.database.DBManager;
+import com.tenjava.entries.UnrealDesign2.t1.database.DBTable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.UUID;
+import org.bukkit.Bukkit;
 
 /**
  *
@@ -17,8 +20,8 @@ import java.sql.Statement;
  */
 public class UOfflinePlayer
 {
-    //Name of the player
-    private String name;
+    //UUID of player
+    private UUID uuid;
     
     //Current connection statement
     private Statement stmt;
@@ -30,33 +33,86 @@ public class UOfflinePlayer
      * Create a UOfflinePlayer instance for a player with the given name
      * @param name name of the player
      */
-    public UOfflinePlayer(String name)
+    public UOfflinePlayer(UUID uuid)
     {
-        this.name = name;
+        this.uuid = uuid;
         this.stmt = DBManager.getInstance().getStatement();
+        this.level = 1;
+        
+        createPlayer();
+        
         loadLevel();
     }
     
     /**
-     * @return name of the player instance
+     * @return true if player is in database
      */
-    public String getName()
-    {
-        return name;
-    }
-    
-    /**
-     * Load the level variable from the database
-     */
-    public void loadLevel()
+    public final boolean playerExists()
     {
         try
         {
-            ResultSet rs = stmt.executeQuery("SELECT level FROM ");
+            ResultSet rs = stmt.executeQuery("SELECT id FROM "+DBTable.players+" WHERE uuid='"+uuid+"';");
+            
+            while(rs.next())
+            {
+                return true;
+            }
         }
         catch(SQLException e)
         {
             e.printStackTrace();
         }
+        
+        return false;
+    }
+    
+    /**
+     * Create database information for player if needed
+     */
+    public final boolean createPlayer()
+    {
+        if(playerExists())
+        {
+            try
+            {
+                stmt.executeUpdate("INSERT INTO "+DBTable.players+"() "
+                        + "VALUES(null, '"+uuid+"', '"+level+"');");
+            }
+            catch(SQLException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        
+        return false;
+    }
+    
+    
+    /**
+     * Load the level variable from the database
+     */
+    public final void loadLevel()
+    {
+        try
+        {
+            ResultSet rs = stmt.executeQuery("SELECT level FROM "+DBTable.players+" WHERE uuid='"+uuid+"';");
+            
+            while(rs.next())
+            {
+                level = rs.getInt("level");
+            }
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    /**
+     * @return uuid of the player
+     */
+    public UUID getUUID()
+    {
+        return uuid;
     }
 }

@@ -61,7 +61,6 @@ public class DBManager
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS "+DBTable.players+"("
                     + "id int(11) AUTO_INCREMENT PRIMARY KEY, "
                     + "uuid varchar(80), "
-                    + "name varchar(16), "
                     + "level int(11));");
         }
         catch(SQLException e)
