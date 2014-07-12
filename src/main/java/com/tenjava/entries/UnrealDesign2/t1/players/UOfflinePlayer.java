@@ -112,7 +112,7 @@ public class UOfflinePlayer
             {
                 level = rs.getInt("level");
                 bal = rs.getInt("bal");
-                killstreak = rs.getInt("kill-streak");
+                killstreak = rs.getInt("kill_streak");
                 xp = rs.getInt("xp");
             }
         }
@@ -132,7 +132,7 @@ public class UOfflinePlayer
             stmt.executeUpdate("UPDATE "+DBTable.players+" "
                     + "SET level='"+level+"', "
                     + "SET bal='"+bal+"', "
-                    + "SET kill-streak='"+killstreak+"',"
+                    + "SET kill_streak='"+killstreak+"',"
                     + "SET xp='"+xp+"' "
                     + "WHERE uuid='"+uuid+"';");
         }

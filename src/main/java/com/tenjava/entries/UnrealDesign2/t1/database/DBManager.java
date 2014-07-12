@@ -64,7 +64,7 @@ public class DBManager
                     + "level int(11) NOT NULL DEFAULT 1, "
                     + "xp int(11) NOT NULL DEFAULT 0, "
                     + "bal int(11) NOT NULL DEFAULT 0, "
-                    + "kill-streak int(11) NOT NULL DEFAULT 0);");
+                    + "kill_streak int(11) NOT NULL DEFAULT 0);");
         }
         catch(SQLException e)
         {
