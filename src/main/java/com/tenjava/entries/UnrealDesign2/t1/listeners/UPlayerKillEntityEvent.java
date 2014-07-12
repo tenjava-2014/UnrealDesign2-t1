@@ -37,13 +37,11 @@ public class UPlayerKillEntityEvent implements Listener
     @EventHandler
     public void playerKillEntity(EntityDeathEvent e)
     {
-        System.out.println("2222");
         LivingEntity diedEntity = e.getEntity();
         LivingEntity killer = e.getEntity().getKiller();
         
         if(killer instanceof Player)
         {
-            System.out.println("SDFSDF");
             
             UPlayerManager manager = UPlayerManager.getInstance();
             SettingsConfig config = ConfigManager.getInstance().getSettings();

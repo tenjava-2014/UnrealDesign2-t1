@@ -58,6 +58,7 @@ public class UOfflinePlayer
     {
         try
         {
+            System.out.println(stmt);
             ResultSet rs = stmt.executeQuery("SELECT id "
                     + "FROM "+DBTable.players+" "
                     + "WHERE uuid='"+uuid+"';");
